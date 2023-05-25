@@ -4,15 +4,31 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    // Start is called before the first frame update
+    GameObject player;
+
     void Start()
     {
-        
+        this.player = GameObject.Find("MyChar_1");
     }
 
     // Update is called once per frame
     void Update()
     {
         transform.Translate(-0.05f, 0, 0);
+
+        if (transform.position.x < -11.0f)  {
+            Destroy(gameObject);
+        }
+
+        Vector2 p1 = transform.position;
+        Vector2 p2 = this.player.transform.position;
+        Vector2 dir = p1 - p2;
+        float d = dir.magnitude;
+        float r1 = 1.0f;
+        float r2 = 0.7f;
+
+        if (d < r1 + r2)  {
+            Destroy(gameObject);
+        }
     }
 }
