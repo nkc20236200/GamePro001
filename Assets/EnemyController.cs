@@ -14,7 +14,7 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(-0.05f, 0, 0);
+        transform.Translate(-0.3f, 0, 0);
 
         if (transform.position.x < -11.0f)  {
             Destroy(gameObject);
@@ -29,6 +29,8 @@ public class EnemyController : MonoBehaviour
 
         if (d < r1 + r2)  {
             Destroy(gameObject);
+            GameObject director = GameObject.Find("GameDirector");
+            director.GetComponent<GameDirector>().DecreaseTime();
         }
     }
 }
