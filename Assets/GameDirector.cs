@@ -7,9 +7,9 @@ public class GameDirector : MonoBehaviour
 {
     GameObject Time_Gauge;
     private float time;
-
     void Start()
     {
+        
         Application.targetFrameRate = 60;
         time = 0;
         this.Time_Gauge = GameObject.Find("Time_Gauge");
@@ -23,9 +23,13 @@ public class GameDirector : MonoBehaviour
 
     void Update()
     {
+
         time += Time.deltaTime;
         if (time > 0)  {
             this.Time_Gauge.GetComponent<Image>().fillAmount -= 0.01f/60;
         }
+        
+
+        
     }
 }

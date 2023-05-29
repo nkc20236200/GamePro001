@@ -23,5 +23,11 @@ public class PlayerController2 : MonoBehaviour
         rb.velocity = position.normalized * speed;
 
 
+        transform.position = new Vector2(
+            Mathf.Clamp(transform.position.x + x, -11.0f, 11.0f),
+            Mathf.Clamp(transform.position.y +y, -5.0f, 5.0f)
+            );
+
+
     }
 }
