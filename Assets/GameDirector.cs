@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class GameDirector : MonoBehaviour
 {
     GameObject Time_Gauge;
     private float time;
-    void Start()
+        void Start()
     {
         
         Application.targetFrameRate = 60;
@@ -28,6 +30,10 @@ public class GameDirector : MonoBehaviour
         if (time > 0)  {
             this.Time_Gauge.GetComponent<Image>().fillAmount -= 0.01f/60;
         }
+        if (this.Time_Gauge.GetComponent<Image>().fillAmount == 0.0f){
+            SceneManager.LoadScene("titlescene");
+        }
+
         
 
         
