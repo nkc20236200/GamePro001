@@ -7,8 +7,8 @@ public class PlayerController : MonoBehaviour
 {
     private float speed;
     private Animator m_Animator = null;
-    Animator animator;
     Rigidbody rb;
+    Animator anm;
     
     void Start()
     {
@@ -18,20 +18,21 @@ public class PlayerController : MonoBehaviour
     }
 
 
+
     void Update()
     {
+        anm = GetComponent<Animator>();
         float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
         Vector3 position = new Vector3(x, y, 0);
         rb.velocity = position.normalized * speed;
 
-        if (y > 0) { 
-            //this.animator.SetTrigger
-               m_Animator.SetTrigger("ue trigger");
+
+        if (Input.GetKey(KeyCode.UpArrow)){
+            anm.Play("ue trigger");
         }
-        if (y<0)  {
-            // this.animator.SetTrigger
-            m_Animator.SetTrigger("sita trigger");
+        if (Input.GetKey(KeyCode.DownArrow)){
+            anm.Play("sita trigger");
         }
 
 

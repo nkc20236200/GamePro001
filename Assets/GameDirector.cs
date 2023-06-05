@@ -38,4 +38,8 @@ public class GameDirector : MonoBehaviour
 
         
     }
+
+    int score(int a)  {
+        return a * 60;
+    }
 }
